@@ -13,8 +13,10 @@ state={
   totalTodayCases:'',
   totalTodayDeaths:'',
   totalTodayRecovered:'',
+  serachCountry:'Bangladesh',
   countryData:{
-    Cases:'77',
+    countryName:'',
+    Cases:'',
     Deaths:'',
     Recovered:'',
     Tests:'',
@@ -32,8 +34,8 @@ componentDidMount(){
   this.CountryResult();
 }
 TotalResult = () => {
-   console.log("COvid-19");
-   axios.get('https://disease.sh/v3/covid-19/all?yesterday=false&twoDaysAgo=false&allowNull=true').then((response) => {
+  console.log("COvid-19");
+  axios.get('https://disease.sh/v3/covid-19/all?yesterday=false&twoDaysAgo=false&allowNull=true').then((response) => {
       console.log(response);
       this.setState({
         totalCases: response.data.cases,
@@ -42,18 +44,18 @@ TotalResult = () => {
         totalTodayCases: response.data.todayCases,
         totalTodayDeaths: response.data.todayDeaths,
         totalTodayRecovered: response.data.todayRecovered
+      
       });
- 
-   }).catch((error) => {
+  }).catch((error) => {
       console.log(error);
-   });
+  });
 };
 
 CountryResult = () => {
   console.log("COvid-19");
-  axios.get('https://disease.sh/v3/covid-19/countries/Bangladesh?yesterday=false&twoDaysAgo=false&strict=true&allowNull=true').then((response) => {
-     console.log(response);
-     this.setState({
+  axios.get('https://disease.sh/v3/covid-19/countries/'+this.state.serachCountry+'?yesterday=false&twoDaysAgo=false&strict=true&allowNull=true').then((response) => {
+    console.log(response);
+    this.setState({
         countryData:{
           Cases: response.data.cases,
           Deaths: response.data.deaths,
@@ -63,14 +65,15 @@ CountryResult = () => {
           TodayRecovered: response.data.todayRecovered==null ? "Data not Yet": response.data.todayRecovered,
           populations:response.data.population,
           flag: response.data.countryInfo.flag,
-          continent:response.data.continent
+          continent:response.data.continent,
+          countryName: response.data.country
 
 
         }
-     });
+    });
 
   }).catch((error) => {
-     console.log(error);
+    console.log(error);
   });
 };
 

@@ -19,7 +19,7 @@ render() {
                 <div className="dataBlock co-1-row-1">
                     <div  className="BlockData">
                         <img src={this.props.state.countryData.flag} height="100px" />
-                        <div className="countryNameUnderFlag">Bangldesh</div>
+                        <div className="countryNameUnderFlag">{this.props.state.countryData.countryName}</div>
                     </div>
                 </div>
                 <div className="dataBlock co-1-row-2">
