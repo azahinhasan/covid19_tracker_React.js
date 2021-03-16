@@ -2,6 +2,7 @@ import React, { useEffect, Component } from 'react';
 import axios from 'axios';
 import ShowDataTotal from './components/showDataTotal';
 import CountryData from './components/countryData';
+import SearchCountry from './components/searchCountry';
 import './App.css';
 class App extends Component {
   
@@ -25,13 +26,18 @@ state={
     TodayRecovered:'',
     flag:'',
     continent:'',
-    populations:''
-  }
+    populations:'',
+    error:false,
+  },
+  trackLocation:false,
+  giveAcessToTrackLocation:false,
+  dataOFcountrys:[]
 
 }
 componentDidMount(){
   this.TotalResult();
   this.CountryResult();
+  this.RasultOFcountryList();
 }
 TotalResult = () => {
   console.log("COvid-19");
@@ -46,6 +52,18 @@ TotalResult = () => {
         totalTodayRecovered: response.data.todayRecovered
       
       });
+  }).catch((error) => {
+      console.log(error);
+  });
+};
+
+RasultOFcountryList = () => {
+  console.log("COvid-19");
+  axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort=cases&allowNull=false').then((response) => {
+      console.log(response);
+
+      const temp =response.data.list.slice(0,50);
+      this.setState({dataOFcountrys : temp});
   }).catch((error) => {
       console.log(error);
   });
@@ -69,11 +87,12 @@ CountryResult = () => {
           countryName: response.data.country
 
 
-        }
+        },error:false
     });
 
   }).catch((error) => {
     console.log(error);
+    this.setState({error: true})
   });
 };
 
@@ -83,6 +102,33 @@ setCountry=(event)=>{
   console.log(this.state.serachCountry);
 }
 
+getGeoInfo = () => {
+  axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
+      //console.log(response);
+ if(this.state.trackLocation == true){
+      this.setState({serachCountry:response.data.country ,trackLocation : false})
+      this.CountryResult();
+ }
+  }).catch((error) => {
+      console.log(error);
+  });
+ 
+};
+
+
+trackLocation=()=>{
+  
+  if(this.state.giveAcessToTrackLocation == false){
+    var confirmAlert =  window.confirm("It will Track your Loaction!");
+  }
+
+
+  if(this.state.giveAcessToTrackLocation ||  confirmAlert){
+    this.setState({trackLocation : true,giveAcessToTrackLocation : true});
+    this.getGeoInfo();
+  }
+
+}
 
   render() {
     return (
@@ -90,11 +136,15 @@ setCountry=(event)=>{
         <div className="dataBody">
           <ShowDataTotal state={this.state} />
           <hr />
-          <CountryData 
-          state={this.state}
-          setCountry={this.setCountry}
-          loadCountryData={this.CountryResult}
+          <SearchCountry
+            setCountry={this.setCountry}
+            loadCountryData={this.CountryResult}
+            getGeoInfo={this.trackLocation}
           />
+          {this.state.error ? <p>Not Found</p>:
+          
+          < CountryData state={this.state} />}
+         
         </div>
 
       </div>

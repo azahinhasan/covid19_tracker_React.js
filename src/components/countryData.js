@@ -9,14 +9,21 @@ class countryData extends Component {
 render() {
     return (
         <div className="countryData">
-            <h2>Bangladesh Covid-19 Data</h2>
+            
             <br></br>
+{/*             
             <div>
                 <input className="search" type="text" onChange={this.props.setCountry} />
+
                 <button className="button"  
                 onClick={this.props.loadCountryData}>
                 <img src={search} className="serachIcon"/></button>
-            </div>
+
+                <button  className="button"
+                onClick={this.props.getGeoInfo}
+                ><img src={loc} className="serachIcon"/></button>
+
+            </div> */}
 
             <br/>
             <div className="dataBlock co-1-row-0">

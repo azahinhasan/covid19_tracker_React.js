@@ -10,7 +10,7 @@ render() {
         <div>
             <h2>Total World Data</h2>
             <div className="WorldData">
-                <div className="dataBlockt">
+                <div className="dataBlock">
                     <div className="BlockHeadert">
                         <p>Total Cases</p>
                     </div>
