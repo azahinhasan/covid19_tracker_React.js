@@ -1,13 +1,24 @@
 import React, { useEffect, Component } from 'react';
 import axios from 'axios';
 import './countryData.css';
+import loc from '../icon/loc.png';
+import search from '../icon/search.png';
+
 class countryData extends Component {
 
 render() {
     return (
-        <div>
+        <div className="countryData">
             <h2>Bangladesh Covid-19 Data</h2>
             <br></br>
+            <div>
+                <input className="search" type="text" onChange={this.props.setCountry} />
+                <button className="button"  
+                onClick={this.props.loadCountryData}>
+                <img src={search} className="serachIcon"/></button>
+            </div>
+
+            <br/>
             <div className="dataBlock co-1-row-0">
                     <div className="BlockHeader">
                         <p>Populations</p>
@@ -18,7 +29,7 @@ render() {
                 </div>
                 <div className="dataBlock co-1-row-1">
                     <div  className="BlockData">
-                        <img src={this.props.state.countryData.flag} height="100px" />
+                        <img className="flag" src={this.props.state.countryData.flag} height="100px" />
                         <div className="countryNameUnderFlag">{this.props.state.countryData.countryName}</div>
                     </div>
                 </div>

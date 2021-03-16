@@ -1,8 +1,5 @@
-body{
-    
-}
 
-.dataBlock{
+.dataBlockt{
     font-size:20px;
     background-color: rgb(255, 255, 255);
     display: block;
@@ -10,42 +7,44 @@ body{
     height:150px;
     box-shadow: 0 5px 6px -3px #777;
 }
-.BlockHeader{
+.BlockHeadert{
     background-color:darksalmon;
     height:40px;
 }
-.co-1{
+.co-1t{
     position: relative;
     top: -170px;
     left: 210px;
 }
-.co-1-row-2{
+.co-1-row-2t{
     position: relative;
     top: -340px;
     left: 420px;
-    /* margin: -30% 35%; */
 }
 
-.co-2-row-0{
+.co-2-row-0t{
     position: relative;
     top: -340px;
     left: 0px;
 }
-.co-2-row-1{
+.co-2-row-1t{
     position: relative;
     top: -510px;
     left: 210px;
 }
-.co-2-row-2{
+.co-2-row-2t{
     position: relative;
     top: -680px;
     left: 420px;
 }
 
-.BlockData{
+.BlockDatat{
     font-size:25px;
 }
 
 h2,h3{
     
+}
+.WorldData{
+    height:430px;
 }

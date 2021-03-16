@@ -77,13 +77,24 @@ CountryResult = () => {
   });
 };
 
+setCountry=(event)=>{
+  event.preventDefault();
+  this.setState({serachCountry: event.target.value});
+  console.log(this.state.serachCountry);
+}
+
+
   render() {
     return (
       <div>
         <div className="dataBody">
           <ShowDataTotal state={this.state} />
           <hr />
-          <CountryData state={this.state} />
+          <CountryData 
+          state={this.state}
+          setCountry={this.setCountry}
+          loadCountryData={this.CountryResult}
+          />
         </div>
 
       </div>
