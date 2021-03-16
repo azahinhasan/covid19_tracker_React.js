@@ -1,0 +1,16 @@
+.dataBody{
+  display: block;
+  border: 1px solid black;
+  width: 750px;
+  margin: 0 30%;
+  text-align: center;
+}
+@media  (max-width: 1200px) {
+  .dataBody{
+    display: block;
+    border: 1px solid black;
+    width: 750px;
+    margin: 0 10%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,51 @@
+body{
+    
+}
+
+.dataBlock{
+    font-size:20px;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    width:190px;
+    height:150px;
+    box-shadow: 0 5px 6px -3px #777;
+}
+.BlockHeader{
+    background-color:darksalmon;
+    height:40px;
+}
+.co-1{
+    position: relative;
+    top: -170px;
+    left: 210px;
+}
+.co-1-row-2{
+    position: relative;
+    top: -340px;
+    left: 420px;
+    /* margin: -30% 35%; */
+}
+
+.co-2-row-0{
+    position: relative;
+    top: -340px;
+    left: 0px;
+}
+.co-2-row-1{
+    position: relative;
+    top: -510px;
+    left: 210px;
+}
+.co-2-row-2{
+    position: relative;
+    top: -680px;
+    left: 420px;
+}
+
+.BlockData{
+    font-size:25px;
+}
+
+h2,h3{
+    
+}
