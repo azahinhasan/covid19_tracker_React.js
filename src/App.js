@@ -159,30 +159,23 @@ trackLocation=()=>{
 }
 
 shortByPropulationHandler=()=>{
-  this.setState({sortBy : 'population'});
-  this.RasultOFcountryList();
+  this.setState({sortBy : 'population'}, () =>this.RasultOFcountryList());
 }
 
 shortByDeathsHandler=()=>{
-  this.setState({sortBy : 'deaths'});
-  this.RasultOFcountryList();
+  this.setState({sortBy : 'deaths'}, () =>this.RasultOFcountryList());
 }
 
 shortByRecoverdHandler=()=>{
-  this.setState({sortBy : 'recovered'});
-  this.RasultOFcountryList();
+  this.setState({sortBy : 'recovered'}, () =>this.RasultOFcountryList());
 }
 
 shortByCasesHandler=()=>{
-  this.setState({sortBy : 'cases'});
-  this.RasultOFcountryList();
+  this.setState({sortBy : 'cases'}, () =>this.RasultOFcountryList());
 }
 
 shortByDropDownHandler=(event)=>{
-
-  //this.setState({sortBy: value}, () => console.log("d "+this.state.sortBy))
   this.setState({sortBy:event.target.value}, () =>this.RasultOFcountryList() )
-
 }
 
 button =()=>{
@@ -213,6 +206,7 @@ button =()=>{
           shortByCases={this.shortByCasesHandler}
           shortByDropDown={(event)=>this.shortByDropDownHandler(event)}
           button={this.button}
+          sortBy={this.state.sortBy}
           />
         </div>
 

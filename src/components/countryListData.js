@@ -14,10 +14,10 @@ render() {
             <div className="sortBy">
                 <span>Sort By: </span>
                 <select onChange={this.props.shortByDropDown}>
-                    <option value="cases" selected>Cases</option>
-                    <option value="recovered">Recovered</option>
-                    <option value="deaths">Deaths</option>
-                    <option value="population">Propulation</option>  
+                    <option value="cases" selected={this.props.sortBy=="cases"?true:false}>Cases</option>
+                    <option value="recovered" selected={this.props.sortBy=="recovered"?true:false}>Recovered</option>
+                    <option value="deaths"  selected={this.props.sortBy=="deaths"?true:false}>Deaths</option>
+                    <option value="population"  selected={this.props.sortBy=="population"?true:false}>Propulation</option>  
                 </select>
             </div>
         
@@ -25,7 +25,7 @@ render() {
             <table className="">
                 <th>Name</th>
                 <th onClick={this.props.shortByPropulation}>Propulation</th>
-                <th onClick={this.props.shortByCases}>Cases</th>
+                <th onClick={this.props.shortByCases}>{this.props.sortBy=="cases"?"Cases ↑":"Cases ↕"}</th>
                 <th>Today Cases</th>
                 <th onClick={this.props.shortByRecoverd}>Recovered</th>
                 <th>Today Recovered</th>
@@ -34,14 +34,14 @@ render() {
                 {this.props.data.map(p =>{
                  return(   
                     <tr>
-                        <td>{p.country}</td>
-                        <td>{p.population}</td>
-                        <td>{p.cases}</td>
-                        <td>{p.todayCases}</td>
-                        <td>{p.recovered}</td>
-                        <td>{p.todayRecovered}</td>
-                        <td>{p.deaths}</td>
-                        <td>{p.todayDeaths}</td>
+                        <td className="countryName">{p.country}</td>
+                        <td>{p.population.toLocaleString()}</td>
+                        <td>{p.cases.toLocaleString()}</td>
+                        <td className="todayCases">{p.todayCases==0? "": "+"+p.todayCases.toLocaleString()}</td>
+                        <td>{p.recovered.toLocaleString()}</td>
+                        <td className="todayRecovered">{p.todayRecovered==0 ? "":"+"+p.todayRecovered.toLocaleString()}</td>
+                        <td>{p.deaths.toLocaleString()}</td>
+                        <td className="todayDeaths">{p.todayDeaths==0 ? "":"+"+p.todayDeaths.toLocaleString()}</td>
                     </tr>
                     
                  )

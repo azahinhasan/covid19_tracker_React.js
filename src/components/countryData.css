@@ -168,10 +168,12 @@ tr:hover {background-color: #ddd;}
     text-align: left;
     background-color: darksalmon;
     color: white;
+    cursor: pointer;
   }
 
   table{
     border-radius: 25px;
+    
   }
 
   .sortBy{
@@ -192,4 +194,18 @@ tr:hover {background-color: #ddd;}
       color:rgb(168, 102, 80);
       font-size: 12px;
       font-weight: bold;
+  }
+
+  .todayCases,.todayDeaths{
+    color:red;
+    font-weight: bold;
+  }
+
+  .todayRecovered{
+    color:green;
+    font-weight: bold;
+  }
+  .countryName{
+    color:rgb(168, 102, 80);
+    font-weight: bold;
   }
