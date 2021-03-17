@@ -3,6 +3,7 @@ import axios from 'axios';
 import ShowDataTotal from './components/showDataTotal';
 import CountryData from './components/countryData';
 import SearchCountry from './components/searchCountry';
+import CountryListData from './components/countryListData';
 import './App.css';
 class App extends Component {
   
@@ -28,16 +29,19 @@ state={
     continent:'',
     populations:'',
     error:false,
+   
   },
   trackLocation:false,
   giveAcessToTrackLocation:false,
-  dataOFcountrys:[]
+  dataOFcountrys:[],
+  sortBy:'cases'
 
 }
 componentDidMount(){
   this.TotalResult();
   this.CountryResult();
   this.RasultOFcountryList();
+  window.addEventListener('load', this.RasultOFcountryList());
 }
 TotalResult = () => {
   console.log("COvid-19");
@@ -59,11 +63,12 @@ TotalResult = () => {
 
 RasultOFcountryList = () => {
   console.log("COvid-19");
-  axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort=cases&allowNull=false').then((response) => {
+  axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort='+this.state.sortBy+'&allowNull=false').then((response) => {
       console.log(response);
 
-      const temp =response.data.list.slice(0,50);
+      const temp =response.data.slice(0,50);
       this.setState({dataOFcountrys : temp});
+      console.log(this.state.dataOFcountrys);
   }).catch((error) => {
       console.log(error);
   });
@@ -130,6 +135,33 @@ trackLocation=()=>{
 
 }
 
+shortByPropulationHandler=()=>{
+  this.setState({sortBy : 'population'});
+  this.RasultOFcountryList();
+}
+
+shortByDeathsHandler=()=>{
+  this.setState({sortBy : 'deaths'});
+  this.RasultOFcountryList();
+}
+
+shortByRecoverdHandler=()=>{
+  this.setState({sortBy : 'recovered'});
+  this.RasultOFcountryList();
+}
+
+shortByCasesHandler=()=>{
+  this.setState({sortBy : 'cases'});
+  this.RasultOFcountryList();
+}
+
+shortByDropDownHandler=(event)=>{
+  this.setState({sortBy : event.target.value});
+  this.RasultOFcountryList();
+  this.RasultOFcountryList();
+  this.componentDidMount();
+}
+
   render() {
     return (
       <div>
@@ -140,11 +172,20 @@ trackLocation=()=>{
             setCountry={this.setCountry}
             loadCountryData={this.CountryResult}
             getGeoInfo={this.trackLocation}
+
           />
           {this.state.error ? <p>Not Found</p>:
           
           < CountryData state={this.state} />}
          
+         <CountryListData 
+         data={this.state.dataOFcountrys}
+         shortByPropulation={this.shortByPropulationHandler}
+         shortByDeaths={this.shortByDeathsHandler}
+         shortByRecoverd={this.shortByRecoverdHandler}
+         shortByCases={this.shortByCasesHandler}
+         shortByDropDown ={this.shortByDropDownHandler}
+         />
         </div>
 
       </div>
