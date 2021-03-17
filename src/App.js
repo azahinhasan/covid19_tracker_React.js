@@ -41,8 +41,30 @@ componentDidMount(){
   this.TotalResult();
   this.CountryResult();
   this.RasultOFcountryList();
-  window.addEventListener('load', this.RasultOFcountryList());
 }
+
+shouldComponentUpdate(nextProps,nextState){
+
+  console.log("this.nextProps");
+  console.log(nextProps);
+  console.log(nextState);
+  return true;
+}
+
+
+
+componentDidUpdate(prevState, nextState){
+  if(this.state == nextState){
+   //this.RasultOFcountryList();
+  }
+
+  console.log("this.state");
+  console.log(prevState);
+  console.log(nextState);
+  console.log(this.state);
+
+}
+
 TotalResult = () => {
   console.log("COvid-19");
   axios.get('https://disease.sh/v3/covid-19/all?yesterday=false&twoDaysAgo=false&allowNull=true').then((response) => {
@@ -62,7 +84,8 @@ TotalResult = () => {
 };
 
 RasultOFcountryList = () => {
-  console.log("COvid-19");
+
+  console.log(this.state.sortBy);
   axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort='+this.state.sortBy+'&allowNull=false').then((response) => {
       console.log(response);
 
@@ -156,10 +179,14 @@ shortByCasesHandler=()=>{
 }
 
 shortByDropDownHandler=(event)=>{
-  this.setState({sortBy : event.target.value});
+
+  //this.setState({sortBy: value}, () => console.log("d "+this.state.sortBy))
+  this.setState({sortBy:event.target.value}, () =>this.RasultOFcountryList() )
+
+}
+
+button =()=>{
   this.RasultOFcountryList();
-  this.RasultOFcountryList();
-  this.componentDidMount();
 }
 
   render() {
@@ -177,15 +204,16 @@ shortByDropDownHandler=(event)=>{
           {this.state.error ? <p>Not Found</p>:
           
           < CountryData state={this.state} />}
-         
-         <CountryListData 
-         data={this.state.dataOFcountrys}
-         shortByPropulation={this.shortByPropulationHandler}
-         shortByDeaths={this.shortByDeathsHandler}
-         shortByRecoverd={this.shortByRecoverdHandler}
-         shortByCases={this.shortByCasesHandler}
-         shortByDropDown ={this.shortByDropDownHandler}
-         />
+
+          <CountryListData 
+          data={this.state.dataOFcountrys}
+          shortByPropulation={this.shortByPropulationHandler}
+          shortByDeaths={this.shortByDeathsHandler}
+          shortByRecoverd={this.shortByRecoverdHandler}
+          shortByCases={this.shortByCasesHandler}
+          shortByDropDown={(event)=>this.shortByDropDownHandler(event)}
+          button={this.button}
+          />
         </div>
 
       </div>

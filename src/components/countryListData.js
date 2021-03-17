@@ -17,7 +17,7 @@ render() {
                 <option value="deaths">deaths</option>
                 <option value="population">propulation</option>  
             </select>
-            <button className="">Click</button>
+            <button onClick={this.props.button}>Click</button>
             <table className="">
                 <th>Name</th>
                 <th onClick={this.props.shortByPropulation}>Propulation</th>
