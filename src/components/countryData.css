@@ -173,3 +173,23 @@ tr:hover {background-color: #ddd;}
   table{
     border-radius: 25px;
   }
+
+  .sortBy{
+      display:block;
+      width:160px;
+      margin: 30px 78%;
+      font-size: 15px;
+      font-weight: bold;
+      color:rgb(168, 102, 80);
+
+      
+  }
+  .sortBy select{
+      text-align: center;
+      border: 2px solid darksalmon;
+      height:30px;
+      width:93px;
+      color:rgb(168, 102, 80);
+      font-size: 12px;
+      font-weight: bold;
+  }

@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from 'react';
+import React, {  Component } from 'react';
 import axios from 'axios';
 import ShowDataTotal from './components/showDataTotal';
 import CountryData from './components/countryData';

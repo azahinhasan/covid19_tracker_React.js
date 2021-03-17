@@ -10,14 +10,18 @@ render() {
     let serialNum=0;
     return (
         <div className="">
-            <span>Sort By: </span>
-            <select onChange={this.props.shortByDropDown}>
-                <option value="cases" selected>cases</option>
-                <option value="recovered">recovered</option>
-                <option value="deaths">deaths</option>
-                <option value="population">propulation</option>  
-            </select>
-            <button onClick={this.props.button}>Click</button>
+            <h2>50 Countrys Data</h2>
+            <div className="sortBy">
+                <span>Sort By: </span>
+                <select onChange={this.props.shortByDropDown}>
+                    <option value="cases" selected>Cases</option>
+                    <option value="recovered">Recovered</option>
+                    <option value="deaths">Deaths</option>
+                    <option value="population">Propulation</option>  
+                </select>
+            </div>
+        
+            {/* <button onClick={this.props.button}>Click</button> */}
             <table className="">
                 <th>Name</th>
                 <th onClick={this.props.shortByPropulation}>Propulation</th>
