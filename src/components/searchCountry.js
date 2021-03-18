@@ -15,13 +15,17 @@ render() {
             <div>
                 <input className="search" type="text" onChange={this.props.setCountry} />
 
+                {/* <button className="button"  
+                onClick={this.props.loadCountryData}>
+                <img src={search} className="serachIcon"/></button> */}
+
                 <button className="button"  
                 onClick={this.props.loadCountryData}>
-                <img src={search} className="serachIcon"/></button>
+               <i class="fa fa-search" ></i></button>
 
                 <button  className="button"
                 onClick={this.props.getGeoInfo}
-                ><img src={loc} className="serachIcon"/></button>
+                ><i class="material-icons">my_location</i></button>
             </div>
         </div> 
     );

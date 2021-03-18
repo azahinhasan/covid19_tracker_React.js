@@ -2,6 +2,11 @@ body{
     
 }
 
+h2,h3{
+    text-decoration: underline;
+    color: rgb(72, 92, 155);
+}
+
 .countryData{
     height:850px;
 }
@@ -15,8 +20,10 @@ body{
     border-radius: 25px;
 }
 .BlockHeader{
-    background-color:darksalmon;
+    background-color:rgb(72, 92, 155);
     height:40px;
+    font-weight: bold;
+    color:white;
 }
 
 .co-1-row-0{
@@ -91,25 +98,23 @@ body{
 .WorldData{
     margin:00% 9%;
 }
-h2,h3{
-    text-decoration: underline;
-}
+
 
 
 .button {
     background-color: black; 
     border: 5px;
     color: white;
-    padding: 10px 22px;   
+    padding: 10px 2px;   
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 0px 20px 40px ;
+    margin: 0px 0px 30px ;
     transition-duration: 0.4s;
     cursor: pointer;
     background-color: white; 
     color: black; 
-    border: 2px solid black;
+    border: 2px solid rgb(72, 92, 155);
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -120,14 +125,21 @@ h2,h3{
     font-weight: bold;
     border-radius: 5px;
     text-align: center;
+
     
     
   }
 
   
   .button:hover {
-    background-color: rgb(207, 204, 204);
+    background-color: rgb(191, 205, 250);
   }
+
+  i{
+    color:rgb(72, 92, 155);
+    font-weight: bold;
+    margin: 0px -20px;
+}
 
   .search{
     margin: 30px 1px;
@@ -136,22 +148,26 @@ h2,h3{
     height: 50px;
     margin-left: auto;
     margin-right: auto;
-    border: 2px black;
+    border: 3px rgb(72, 92, 155);
     border-bottom-style: solid;
     text-align: center;
     font-size: 20px;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
     outline: none;
+    font-size: 20px;
+    color: rgb(57, 75, 134);
   }
   
  .search:hover {
-    background-color: rgb(146, 145, 145);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(48, 63, 112);
   } 
 .serachIcon {
     height:24px;
     margin:-2px -13px;
 } 
+
+
 
 td,th {
     border: 1px solid #ddd;
@@ -166,7 +182,7 @@ tr:hover {background-color: #ddd;}
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: darksalmon;
+    background-color: rgb(72, 92, 155);
     color: white;
     cursor: pointer;
   }
@@ -182,16 +198,16 @@ tr:hover {background-color: #ddd;}
       margin: 30px 78%;
       font-size: 15px;
       font-weight: bold;
-      color:rgb(168, 102, 80);
+      color:rgb(72, 92, 155);
 
       
   }
   .sortBy select{
       text-align: center;
-      border: 2px solid darksalmon;
+      border: 2px solid rgb(72, 92, 155);
       height:30px;
       width:93px;
-      color:rgb(168, 102, 80);
+      color:rgb(72, 92, 155);
       font-size: 12px;
       font-weight: bold;
   }
@@ -206,6 +222,48 @@ tr:hover {background-color: #ddd;}
     font-weight: bold;
   }
   .countryName{
-    color:rgb(168, 102, 80);
+    color:rgb(72, 92, 155);
     font-weight: bold;
   }
+
+
+  .navBar ul {
+    list-style: none;
+    margin : 0;
+    padding: 0%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navBar li{
+    display: inline-block;
+    margin: 20px;
+
+}
+
+.navBar a{
+    text-decoration: none;
+    color: rgb(72, 92, 155);
+
+}
+
+.navBarlog a:hover,
+.navBar a:active,
+.navBar a.active{
+    color: rgb(72, 92, 155);
+    border-bottom: 3px solid rgb(72, 92, 155);
+}
+
+.navBar{
+    border-bottom: 5px solid rgb(72, 92, 155);
+}
+
+.siteName{
+    font-size: 26px;
+    color: rgb(72, 92, 155) ;
+    position: relative;
+    left:-13%;
+}
+.navOptions{
+    margin:0px 0% 0 22%;
+}

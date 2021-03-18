@@ -8,8 +8,10 @@
     box-shadow: 0 5px 6px -3px #777;
 }
 .BlockHeadert{
-    background-color:darksalmon;
+    background-color:rgb(72, 92, 155);
     height:40px;
+    font-weight: bold;
+    color: aliceblue;
 }
 .co-1t{
     position: relative;
@@ -42,9 +44,7 @@
     font-size:25px;
 }
 
-h2,h3{
-    
-}
+
 .WorldData{
     height:430px;
 }

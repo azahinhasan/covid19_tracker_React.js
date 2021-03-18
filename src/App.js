@@ -4,6 +4,8 @@ import ShowDataTotal from './components/showDataTotal';
 import CountryData from './components/countryData';
 import SearchCountry from './components/searchCountry';
 import CountryListData from './components/countryListData';
+import NavBar from './components/navBar';
+import {Route,NavLink, Switch, Redirect} from 'react-router-dom';
 import './App.css';
 class App extends Component {
   
@@ -89,7 +91,7 @@ RasultOFcountryList = () => {
   axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort='+this.state.sortBy+'&allowNull=false').then((response) => {
       console.log(response);
 
-      const temp =response.data.slice(0,50);
+      const temp =response.data.slice(0,500);
       this.setState({dataOFcountrys : temp});
       console.log(this.state.dataOFcountrys);
   }).catch((error) => {
@@ -186,28 +188,47 @@ button =()=>{
     return (
       <div>
         <div className="dataBody">
-          <ShowDataTotal state={this.state} />
-          <hr />
-          <SearchCountry
+
+
+          <NavBar/>
+
+
+
+          <Route path={'/home'} 
+          render={(props)=>
+          (<ShowDataTotal state={this.state}/>)
+          }/>
+
+          <Route path={'/home'} 
+          render={()=>
+          (<SearchCountry  
             setCountry={this.setCountry}
             loadCountryData={this.CountryResult}
-            getGeoInfo={this.trackLocation}
+            getGeoInfo={this.trackLocation} />)
+          }/>
 
-          />
           {this.state.error ? <p>Not Found</p>:
-          
-          < CountryData state={this.state} />}
+          <Route path={'/home'} 
+          render={()=>
+          (<CountryData state={this.state} />)
+          }/>
+        }
 
-          <CountryListData 
-          data={this.state.dataOFcountrys}
-          shortByPropulation={this.shortByPropulationHandler}
-          shortByDeaths={this.shortByDeathsHandler}
-          shortByRecoverd={this.shortByRecoverdHandler}
-          shortByCases={this.shortByCasesHandler}
-          shortByDropDown={(event)=>this.shortByDropDownHandler(event)}
-          button={this.button}
-          sortBy={this.state.sortBy}
-          />
+
+          <Route path={'/countryList'} 
+          render={()=>
+          (<CountryListData data={this.state.dataOFcountrys}
+            shortByPropulation={this.shortByPropulationHandler}
+            shortByDeaths={this.shortByDeathsHandler}
+            shortByRecoverd={this.shortByRecoverdHandler}
+            shortByCases={this.shortByCasesHandler}
+            shortByDropDown={(event)=>this.shortByDropDownHandler(event)}
+            button={this.button}
+            sortBy={this.state.sortBy}/>)
+          }/>
+
+
+
         </div>
 
       </div>

@@ -32,7 +32,7 @@ render() {
                 <th onClick={this.props.shortByDeaths}>Deaths</th>
                 <th>Today Deaths</th>
                 {this.props.data.map(p =>{
-                 return(   
+                return(   
                     <tr>
                         <td className="countryName">{p.country}</td>
                         <td>{p.population.toLocaleString()}</td>
