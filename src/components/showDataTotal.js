@@ -28,7 +28,7 @@ render() {
                 </div>
                 <div className="dataBlock co-1-row-2t">
                     <div className="BlockHeadert">
-                        <p>Total Cases</p>
+                        <p>Total Recovered</p>
                     </div>
                     <div  className="BlockDatat">
                         <p>{this.props.state.totalRecovered}</p>

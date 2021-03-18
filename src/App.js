@@ -108,9 +108,9 @@ CountryResult = () => {
           Cases: response.data.cases,
           Deaths: response.data.deaths,
           Recovered: response.data.recovered,
-          TodayCases: response.data.todayCases==null ? "Data not Yet": response.data.todayCases,
-          TodayDeaths: response.data.todayDeaths==null ? "Data not Yet": response.data.todayDeaths,
-          TodayRecovered: response.data.todayRecovered==null ? "Data not Yet": response.data.todayRecovered,
+          TodayCases: response.data.todayCases==null ? "Data not Available Yet": response.data.todayCases,
+          TodayDeaths: response.data.todayDeaths==null ? "Data not Available Yett": response.data.todayDeaths,
+          TodayRecovered: response.data.todayRecovered==null ? "Data not Available Yet": response.data.todayRecovered,
           populations:response.data.population,
           flag: response.data.countryInfo.flag,
           continent:response.data.continent,
@@ -192,14 +192,16 @@ button =()=>{
 
           <NavBar/>
 
+          <Redirect from="/" to={'/home'}/>
 
-
-          <Route path={'/home'} 
+          <Route path={'/home'}
+          exact
           render={(props)=>
           (<ShowDataTotal state={this.state}/>)
           }/>
 
           <Route path={'/home'} 
+          exact
           render={()=>
           (<SearchCountry  
             setCountry={this.setCountry}
@@ -209,13 +211,13 @@ button =()=>{
 
           {this.state.error ? <p>Not Found</p>:
           <Route path={'/home'} 
+          exact
           render={()=>
           (<CountryData state={this.state} />)
           }/>
         }
 
-
-          <Route path={'/countryList'} 
+        <Route path={'/countryList'} 
           render={()=>
           (<CountryListData data={this.state.dataOFcountrys}
             shortByPropulation={this.shortByPropulationHandler}
@@ -226,8 +228,6 @@ button =()=>{
             button={this.button}
             sortBy={this.state.sortBy}/>)
           }/>
-
-
 
         </div>
 

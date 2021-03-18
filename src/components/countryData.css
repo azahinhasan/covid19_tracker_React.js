@@ -179,10 +179,11 @@ td,th {
     border: 1px solid #ddd;
     padding: 8px;
     
+    
 }
 th{
     border-radius: 8px 8px 0px 0px;
-    
+    width: 500px;
 }
 tr:nth-child(even){background-color: #f2f2f2;}
 tr:hover {background-color: #ddd;}
@@ -284,4 +285,37 @@ tr:hover {background-color: #ddd;}
 }
 .navOptions{
     margin:0px 0% 0 22%;
+}
+
+@media  (max-width: 800px) {
+    .siteName{
+        position: relative;
+        left:-2%;
+    }
+
+    .dataBlock{
+        margin:0px -85px;
+    }
+
+    .co-1-row-0{
+        position: relative;
+        top: -20px;
+        left:48px;
+    }
+    
+    
+    .co-1-row-1{
+        position: relative;
+        top: -170px;
+        left: 260px;
+    }
+    .co-1-row-2{
+        position: relative;
+        top: -340px;
+        left: 466px;
+    }
+    table{
+        font-size: 10px;
+    }
+    
 }

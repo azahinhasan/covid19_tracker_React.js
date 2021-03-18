@@ -25,12 +25,12 @@ render() {
             <table className="">
                 <th>Serial No.</th>
                 <th>Name</th>
-                <th onClick={this.props.shortByPropulation}>Propulation</th>
+                <th onClick={this.props.shortByPropulation}>{this.props.sortBy=="population"?"Population ↑":"Population ↕"}</th>
                 <th onClick={this.props.shortByCases}>{this.props.sortBy=="cases"?"Cases ↑":"Cases ↕"}</th>
                 <th>Today Cases</th>
-                <th onClick={this.props.shortByRecoverd}>Recovered</th>
+                <th onClick={this.props.shortByRecoverd}>{this.props.sortBy=="recovered"?"Recovered ↑":"Recovered ↕"}</th>
                 <th>Today Recovered</th>
-                <th onClick={this.props.shortByDeaths}>Deaths</th>
+                <th onClick={this.props.shortByDeaths}>{this.props.sortBy=="deaths"?"Deaths ↑":"Deaths ↕"}</th>
                 <th>Today Deaths</th>
                 {this.props.data.map(p =>{
                     serialNum++;

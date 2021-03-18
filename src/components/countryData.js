@@ -28,7 +28,7 @@ render() {
             <br/>
             <div className="dataBlock co-1-row-0">
                     <div className="BlockHeader">
-                        <p>Populations</p>
+                        <p>Population</p>
                     </div>
                     <div  className="BlockData">
                         <p>{this.props.state.countryData.populations}</p>
