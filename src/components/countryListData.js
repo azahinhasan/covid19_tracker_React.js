@@ -23,6 +23,7 @@ render() {
         
             {/* <button onClick={this.props.button}>Click</button> */}
             <table className="">
+                <th>Serial No.</th>
                 <th>Name</th>
                 <th onClick={this.props.shortByPropulation}>Propulation</th>
                 <th onClick={this.props.shortByCases}>{this.props.sortBy=="cases"?"Cases ↑":"Cases ↕"}</th>
@@ -32,8 +33,10 @@ render() {
                 <th onClick={this.props.shortByDeaths}>Deaths</th>
                 <th>Today Deaths</th>
                 {this.props.data.map(p =>{
+                    serialNum++;
                 return(   
                     <tr>
+                        <td className="serialNo">{serialNum}</td>
                         <td className="countryName">{p.country}</td>
                         <td>{p.population.toLocaleString()}</td>
                         <td>{p.cases.toLocaleString()}</td>

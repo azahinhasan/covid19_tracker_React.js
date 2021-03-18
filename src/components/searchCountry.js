@@ -23,9 +23,10 @@ render() {
                 onClick={this.props.loadCountryData}>
                <i class="fa fa-search" ></i></button>
 
-                <button  className="button"
+                <button  className="button findLoction"
                 onClick={this.props.getGeoInfo}
                 ><i class="material-icons">my_location</i></button>
+                
             </div>
         </div> 
     );
