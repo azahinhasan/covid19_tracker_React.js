@@ -198,10 +198,12 @@ button =()=>{
         <Route path={'/countryList'} 
           render={()=>
           (<CountryListData data={this.state.dataOFcountrys}
+
             shortByPropulation={this.shortByPropulationHandler}
             shortByDeaths={this.shortByDeathsHandler}
             shortByRecoverd={this.shortByRecoverdHandler}
             shortByCases={this.shortByCasesHandler}
+            serachCountry={this.state.countryData.countryName}
             shortByDropDown={(event)=>this.shortByDropDownHandler(event)}
             button={this.button}
             sortBy={this.state.sortBy}/>)

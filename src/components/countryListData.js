@@ -8,6 +8,7 @@ class countryListData extends Component {
 
 render() {
     let serialNum=0;
+    const arrowRight = <div className="arrowRight">→</div>
     return (
         <div className="">
 
@@ -39,7 +40,7 @@ render() {
                     serialNum++;
                 return(   
                     <tr>
-                        <td className="serialNo">{serialNum}</td>
+                        <td className="serialNo">{p.country == this.props.serachCountry ? arrowRight:serialNum}</td>
                         <td className="countryName">{p.country}</td>
                         <td>{p.population.toLocaleString()}</td>
                         <td>{p.cases.toLocaleString()}</td>
@@ -50,12 +51,10 @@ render() {
                         <td className="todayDeaths">{p.todayDeaths==0 ? "":"+"+p.todayDeaths.toLocaleString()}</td>
                     </tr>
                     
-                 )
-                 
+                ) 
                 })}
 
             </table>
-  
         </div> 
     );
 }

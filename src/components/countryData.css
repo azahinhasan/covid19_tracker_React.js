@@ -294,6 +294,13 @@ table{
     margin:0px 0% 0 22%;
 }
 
+.arrowRight{
+    /* → */
+    font-size:25px;
+    font-weight: bold;
+    
+}
+
 @media  (max-width: 1400px) {
 
     .dataBlock{
