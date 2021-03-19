@@ -9,7 +9,7 @@ class searchCountry extends Component {
 render() {
     return (
         <div className="">
-            <h2>Find Specific Country Data</h2>
+            <h2>Search Country</h2>
             <br></br>
             
             <div>

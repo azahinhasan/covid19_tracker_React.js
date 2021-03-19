@@ -8,7 +8,7 @@ class showDataTotal extends Component {
 render() {
     return (
         <div>
-            <h2>Total World Data</h2>
+            <h2>World Statistics</h2>
             <div className="WorldData">
                 <div className="dataBlock">
                     <div className="BlockHeadert">
