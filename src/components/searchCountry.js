@@ -13,7 +13,7 @@ render() {
             <br></br>
             
             <div>
-                <input className="search" type="text" onChange={this.props.setCountry} />
+                <input className="search" type="text" onChange={this.props.setCountry} placeholder="Enter Country Name"/>
 
                 {/* <button className="button"  
                 onClick={this.props.loadCountryData}>

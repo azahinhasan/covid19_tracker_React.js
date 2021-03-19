@@ -45,27 +45,6 @@ componentDidMount(){
   this.RasultOFcountryList();
 }
 
-shouldComponentUpdate(nextProps,nextState){
-
-  console.log("this.nextProps");
-  console.log(nextProps);
-  console.log(nextState);
-  return true;
-}
-
-
-
-componentDidUpdate(prevState, nextState){
-  if(this.state == nextState){
-   //this.RasultOFcountryList();
-  }
-
-  console.log("this.state");
-  console.log(prevState);
-  console.log(nextState);
-  console.log(this.state);
-
-}
 
 TotalResult = () => {
   console.log("COvid-19");
@@ -87,13 +66,12 @@ TotalResult = () => {
 
 RasultOFcountryList = () => {
 
-  console.log(this.state.sortBy);
   axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort='+this.state.sortBy+'&allowNull=false').then((response) => {
       console.log(response);
 
       const temp =response.data.slice(0,500);
       this.setState({dataOFcountrys : temp});
-      console.log(this.state.dataOFcountrys);
+      //console.log(this.state.dataOFcountrys);
   }).catch((error) => {
       console.log(error);
   });
@@ -129,7 +107,7 @@ CountryResult = () => {
 setCountry=(event)=>{
   event.preventDefault();
   this.setState({serachCountry: event.target.value});
-  console.log(this.state.serachCountry);
+  //console.log(this.state.serachCountry);
 }
 
 getGeoInfo = () => {
