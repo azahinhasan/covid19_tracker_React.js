@@ -190,7 +190,7 @@ button =()=>{
           }/>
 
           {this.state.error ? <p>Not Found</p>:
-          <Route path={GitHublinkHome} 
+          <Route path={'/'} 
           //exact
           render={()=>
           (<CountryData state={this.state} />)
