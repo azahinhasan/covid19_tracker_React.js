@@ -6,7 +6,7 @@ import {Route,NavLink, Switch, Redirect} from 'react-router-dom';
 class navBar extends Component {
 
 render() {
-        const GitHublinkHome = "covid19_tracker_React.js/home";
+    const GitHublinkHome = "covid19_tracker_React.js/home";
     const GitHublinkList = "covid19_tracker_React.js/list";
     return (
         <div className="navBar">
@@ -16,8 +16,8 @@ render() {
                 <li className="siteName">Covid-19 Tracker</li>
                 <span className="navOptions">
                     
-                    <li><NavLink to="/hocovid19_tracker_React.js/home" exact >Home</NavLink></li>
-                    <li><NavLink to="/countryList">List</NavLink></li>
+                    <li><NavLink to='/' exact >Home</NavLink></li>
+                    <li><NavLink to='/countryList'>List</NavLink></li>
                 </span>
              
             </ul>
