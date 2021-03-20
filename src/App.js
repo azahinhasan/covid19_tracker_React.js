@@ -163,6 +163,7 @@ button =()=>{
 }
 
   render() {
+    const GitHublink = "covid19_tracker_React.js/";
     return (
       <div>
         <div className="dataBody">
@@ -170,16 +171,16 @@ button =()=>{
 
           <NavBar/>
 
-          <Redirect from="/" to={'/home'}/>
+          <Redirect from='covid19_tracker_React.js/' to='covid19_tracker_React.js/home'/>
 
-          <Route path={'/home'}
+          <Route path={'covid19_tracker_React.js/home'}
           exact
           render={(props)=>
           (<ShowDataTotal state={this.state}/>)
           }/>
 
           <Route path={'/home'} 
-          exact
+         // exact
           render={()=>
           (<SearchCountry  
             setCountry={this.setCountry}
@@ -189,7 +190,7 @@ button =()=>{
 
           {this.state.error ? <p>Not Found</p>:
           <Route path={'/home'} 
-          exact
+          //exact
           render={()=>
           (<CountryData state={this.state} />)
           }/>
