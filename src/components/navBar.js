@@ -16,7 +16,7 @@ render() {
                 <li className="siteName">Covid-19 Tracker</li>
                 <span className="navOptions">
                     
-                    <li><NavLink to={'/'} exact >Home</NavLink></li>
+                    <li><NavLink to={{pathname: '/home'}} exact >Home</NavLink></li>
                     <li><NavLink to={'/countryList'}>List</NavLink></li>
                 </span>
              

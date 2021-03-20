@@ -174,13 +174,13 @@ button =()=>{
 
           {/* <Redirect from='covid19_tracker_React.js/' to='covid19_tracker_React.js/home'/> */}
 
-          <Route path={'/'}
-          exact
+          <Route path={'/home'}
+          //exact
           render={(props)=>
           (<ShowDataTotal state={this.state}/>)
           }/>
 
-          <Route path={'/'} 
+          <Route path={'/home'} 
          // exact
           render={()=>
           (<SearchCountry  
@@ -190,7 +190,7 @@ button =()=>{
           }/>
 
           {this.state.error ? <p>Not Found</p>:
-          <Route path={'/'} 
+          <Route path={'/home'} 
           //exact
           render={()=>
           (<CountryData state={this.state} />)
