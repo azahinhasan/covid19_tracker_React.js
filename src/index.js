@@ -10,7 +10,7 @@ ReactDOM.render(
   //   <App />
   // </React.StrictMode>,
   
-  <BrowserRouter>
+  <BrowserRouter basename="/covid19_tracker_React.js" forceRefresh={false}>
     <App />
   </BrowserRouter>,
 

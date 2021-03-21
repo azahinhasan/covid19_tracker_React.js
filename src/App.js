@@ -4,8 +4,9 @@ import ShowDataTotal from './components/showDataTotal';
 import CountryData from './components/countryData';
 import SearchCountry from './components/searchCountry';
 import CountryListData from './components/countryListData';
+import Spinner from './UI/Spinner';
 import NavBar from './components/navBar';
-import {Route,NavLink, Switch, Redirect} from 'react-router-dom';
+import {Route,NavLink, Switch, Redirect,HashRouter} from 'react-router-dom';
 import './App.css';
 class App extends Component {
   
@@ -36,7 +37,8 @@ state={
   trackLocation:false,
   giveAcessToTrackLocation:false,
   dataOFcountrys:[],
-  sortBy:'cases'
+  sortBy:'cases',
+  spinner:true
 
 }
 componentDidMount(){
@@ -78,6 +80,9 @@ RasultOFcountryList = () => {
 };
 
 CountryResult = () => {
+
+  this.setState({spinner:true});
+
   console.log("COvid-19");
   axios.get('https://disease.sh/v3/covid-19/countries/'+this.state.serachCountry+'?yesterday=false&twoDaysAgo=false&strict=true&allowNull=true').then((response) => {
     console.log(response);
@@ -86,21 +91,22 @@ CountryResult = () => {
           Cases: response.data.cases,
           Deaths: response.data.deaths,
           Recovered: response.data.recovered,
-          TodayCases: response.data.todayCases==null ? "Data not Available Yet": response.data.todayCases,
-          TodayDeaths: response.data.todayDeaths==null ? "Data not Available Yett": response.data.todayDeaths,
-          TodayRecovered: response.data.todayRecovered==null ? "Data not Available Yet": response.data.todayRecovered,
+          TodayCases: response.data.todayCases==null ? "X": response.data.todayCases,
+          TodayDeaths: response.data.todayDeaths==null ? "X": response.data.todayDeaths,
+          TodayRecovered: response.data.todayRecovered==null ? "X": response.data.todayRecovered,
           populations:response.data.population,
           flag: response.data.countryInfo.flag,
           continent:response.data.continent,
           countryName: response.data.country
 
 
-        },error:false
+        },error:false,spinner:false
     });
 
   }).catch((error) => {
+
     console.log(error);
-    this.setState({error: true})
+    this.setState({error: true,spinner:false})
   });
 };
 
@@ -165,6 +171,20 @@ button =()=>{
   render() {
     const GitHublink = "covid19_tracker_React.js/";
     const GitHublinkHome = "covid19_tracker_React.js/home";
+
+
+    let countryDataSpinner=null;
+
+    if(this.state.spinner){
+      countryDataSpinner=<Spinner/>
+    }else{
+      countryDataSpinner=<CountryData state={this.state} />;
+      if(this.state.error){
+        countryDataSpinner=<p>Not Found</p>;
+      }
+    }
+   
+
     return (
       <div>
         <div className="dataBody">
@@ -172,8 +192,10 @@ button =()=>{
 
           <NavBar/>
 
-          {/* <Redirect from='covid19_tracker_React.js/' to='covid19_tracker_React.js/home'/> */}
+       
+          <Redirect from={'/'} to={{pathname:'/home'}}/> 
 
+         
           <Route path={'/home'}
           //exact
           render={(props)=>
@@ -186,16 +208,15 @@ button =()=>{
           (<SearchCountry  
             setCountry={this.setCountry}
             loadCountryData={this.CountryResult}
-            getGeoInfo={this.trackLocation} />)
+            getGeoInfo={this.trackLocation} /> )  
           }/>
-
-          {this.state.error ? <p>Not Found</p>:
+          
           <Route path={'/home'} 
-          //exact
           render={()=>
-          (<CountryData state={this.state} />)
+          (countryDataSpinner)
           }/>
-        }
+        
+
 
         <Route path={'/countryList'} 
           render={()=>
@@ -210,7 +231,7 @@ button =()=>{
             button={this.button}
             sortBy={this.state.sortBy}/>)
           }/>
-
+    
         </div>
 
       </div>

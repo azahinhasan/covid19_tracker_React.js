@@ -75,26 +75,26 @@ render() {
                     </div>
                 </div>
                 <div className="dataBlock co-3-row-0">
-                    <div className="BlockHeader">
+                    <div className="BlockHeader ">
                         <p>Today's Cases</p>
                     </div>
-                    <div  className="BlockData">
+                    <div  className="BlockData todayCases">
                         <p>{this.props.state.countryData.TodayCases}</p>
                     </div>
                 </div>
                 <div className="dataBlock co-3-row-1">
-                    <div className="BlockHeader">
+                    <div className="BlockHeader ">
                         <p>Today's Deaths</p>
                     </div>
-                    <div  className="BlockData">
+                    <div  className="BlockData todayDeaths">
                         <p>{this.props.state.countryData.TodayDeaths}</p>
                     </div>
                 </div>
                 <div className="dataBlock co-3-row-2">
-                    <div className="BlockHeader">
+                    <div className="BlockHeader ">
                         <p>Today's Recovered</p>
                     </div>
-                    <div  className="BlockData">
+                    <div  className="BlockData todayRecovered">
                         <p>{this.props.state.countryData.TodayRecovered}</p>
                     </div>
                 </div>

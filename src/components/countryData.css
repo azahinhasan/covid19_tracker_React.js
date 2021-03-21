@@ -321,14 +321,14 @@ table{
   }
 
 
-@media  (max-width: 850px) {
+@media  screen and (max-device-width: 850px) {
     .siteName{
         position: relative;
         left:-2%;
     }
 
     .dataBlock{
-        margin:0px -4%;
+        margin:0px -5%;
     }
 
     .co-1-row-0{
@@ -360,5 +360,44 @@ table{
     
 }
 
+
+@media  screen and (max-device-width: 399px) {
+    .siteName{
+        position: relative;
+        left:-2%;
+    }
+
+    .dataBlock{
+        margin:0px -11%;
+    }
+
+    .co-1-row-0{
+        position: relative;
+        top: -20px;
+        left:70px;
+    }
+    
+    
+    .co-1-row-1{
+        position: relative;
+        top: -170px;
+        left: 280px;
+    }
+    .co-1-row-2{
+        position: relative;
+        top: -340px;
+        left: 490px;
+    }
+    table{
+        font-size: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .headerOFdataTable{
+        margin: 50px 0% -59px -330px;
+        font-size: 20px;
+    }
+    
+}
 
 

@@ -35,10 +35,10 @@ render() {
                     </div>
                 </div>
                 <div className="dataBlock co-2-row-0t">
-                    <div className="BlockHeadert">
+                    <div className="BlockHeadert ">
                         <p>Today's Cases</p>
                     </div>
-                    <div  className="BlockDatat">
+                    <div  className="BlockDatat todayCases">
                         <p>{this.props.state.totalTodayCases}</p>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ render() {
                     <div className="BlockHeadert">
                         <p>Today's Deaths</p>
                     </div>
-                    <div  className="BlockDatat">
+                    <div  className="BlockDatat todayDeaths">
                         <p>{this.props.state.totalTodayDeaths}</p>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ render() {
                     <div className="BlockHeadert">
                         <p>Today's Recovered</p>
                     </div>
-                    <div  className="BlockDatat">
+                    <div  className="BlockDatat todayRecovered">
                         <p>{this.props.state.totalTodayRecovered}</p>
                     </div>
                 </div>

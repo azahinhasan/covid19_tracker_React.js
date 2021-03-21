@@ -17,7 +17,7 @@ render() {
                 <span className="navOptions">
                     
                     <li><NavLink to={{pathname: '/home'}} exact >Home</NavLink></li>
-                    <li><NavLink to={'/countryList'}>List</NavLink></li>
+                    <li><NavLink to={{pathname:'/countryList'}}>List</NavLink></li>
                 </span>
              
             </ul>
