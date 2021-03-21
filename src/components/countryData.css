@@ -212,7 +212,7 @@ table{
   .sortBy{
       display:block;
       width:160px;
-      margin: 30px 78%;
+      margin: 30px 80%;
       font-size: 15px;
       font-weight: bold;
       color:rgb(72, 92, 155);
@@ -320,13 +320,36 @@ table{
 
   }
 
+  @media  screen and (max-width: 850px) {
+    .siteName{
+        position: relative;
+        left:-8%;
+    }
+
+    .sortBy{
+        margin: 30px 76%; 
+    }
+    .dataBlock{
+        margin:0px -5%;
+    }
+
+
+    .headerOFdataTable{
+        margin: 50px 0% -55px -250px;
+        font-size: 20px;
+    }
+    
+}
 
 @media  screen and (max-device-width: 850px) {
     .siteName{
         position: relative;
-        left:-2%;
+        left:-8%;
     }
 
+    .sortBy{
+        margin: 30px 76%; 
+    }
     .dataBlock{
         margin:0px -5%;
     }
@@ -354,7 +377,7 @@ table{
         margin-right: auto;
     }
     .headerOFdataTable{
-        margin: 50px 0% -59px -330px;
+        margin: 50px 0% -55px -200px;
         font-size: 20px;
     }
     
@@ -367,26 +390,30 @@ table{
         left:-2%;
     }
 
+    .sortBy{
+        margin: 30px 74%; 
+    }
+
     .dataBlock{
-        margin:0px -11%;
+        margin:0px -10%;
     }
 
     .co-1-row-0{
         position: relative;
         top: -20px;
-        left:70px;
+        left:66px;
     }
     
     
     .co-1-row-1{
         position: relative;
         top: -170px;
-        left: 280px;
+        left: 276px;
     }
     .co-1-row-2{
         position: relative;
         top: -340px;
-        left: 490px;
+        left: 486px;
     }
     table{
         font-size: 10px;

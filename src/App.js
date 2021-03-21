@@ -179,8 +179,10 @@ button =()=>{
       countryDataSpinner=<Spinner/>
     }else{
       countryDataSpinner=<CountryData state={this.state} />;
+
       if(this.state.error){
         countryDataSpinner=<p>Not Found</p>;
+
       }
     }
    
