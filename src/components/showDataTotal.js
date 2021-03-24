@@ -1,5 +1,4 @@
-import React, { useEffect, Component } from 'react';
-import axios from 'axios';
+import React, {  Component } from 'react';
 import './showData.css';
 class showDataTotal extends Component {
   

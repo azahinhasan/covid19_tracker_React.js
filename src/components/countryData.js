@@ -1,8 +1,5 @@
-import React, { useEffect, Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 import './countryData.css';
-import loc from '../icon/loc.png';
-import search from '../icon/search.png';
 
 class countryData extends Component {
 

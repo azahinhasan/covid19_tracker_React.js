@@ -22,3 +22,11 @@
     text-align: center;
   }
 }
+
+/* @media  (max-device-width:: 360px) {
+  .dataBody{
+    width:  100%;
+    margin: 0 -2% 0 0%;
+    text-align: center;
+  }
+} */

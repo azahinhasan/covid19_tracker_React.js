@@ -428,3 +428,41 @@ table{
 }
 
 
+@media  screen and (max-device-width: 360px) {
+
+    .sortBy{
+        margin: 30px 73%; 
+    }
+
+    .dataBlock{
+        margin:0px -12%;
+    }
+/* 
+    .co-1-row-0{
+        position: relative;
+        top: -20px;
+        left:66px;
+    }
+    
+    
+    .co-1-row-1{
+        position: relative;
+        top: -170px;
+        left: 276px;
+    }
+    .co-1-row-2{
+        position: relative;
+        top: -340px;
+        left: 486px;
+    } */
+    table{
+        font-size: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .headerOFdataTable{
+        margin: 50px 0% -54px -170px;
+        font-size: 18px;
+    }
+    
+}

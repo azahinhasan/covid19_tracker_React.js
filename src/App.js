@@ -6,7 +6,7 @@ import SearchCountry from './components/searchCountry';
 import CountryListData from './components/countryListData';
 import Spinner from './UI/Spinner';
 import NavBar from './components/navBar';
-import {Route,NavLink, Switch, Redirect,HashRouter} from 'react-router-dom';
+import {Route,Redirect} from 'react-router-dom';
 import './App.css';
 class App extends Component {
   
@@ -49,9 +49,8 @@ componentDidMount(){
 
 
 TotalResult = () => {
-  console.log("COvid-19");
   axios.get('https://disease.sh/v3/covid-19/all?yesterday=false&twoDaysAgo=false&allowNull=true').then((response) => {
-      console.log(response);
+     // console.log(response);
       this.setState({
         totalCases: response.data.cases,
         totalDeaths: response.data.deaths,
@@ -69,7 +68,7 @@ TotalResult = () => {
 RasultOFcountryList = () => {
 
   axios.get('https://disease.sh/v3/covid-19/countries?yesterday=false&twoDaysAgo=false&sort='+this.state.sortBy+'&allowNull=false').then((response) => {
-      console.log(response);
+     // console.log(response);
 
       const temp =response.data.slice(0,500);
       this.setState({dataOFcountrys : temp});
@@ -85,7 +84,7 @@ CountryResult = () => {
 
   console.log("COvid-19");
   axios.get('https://disease.sh/v3/covid-19/countries/'+this.state.serachCountry+'?yesterday=false&twoDaysAgo=false&strict=true&allowNull=true').then((response) => {
-    console.log(response);
+    //console.log(response);
     this.setState({
         countryData:{
           Cases: response.data.cases,
@@ -119,7 +118,7 @@ setCountry=(event)=>{
 getGeoInfo = () => {
   axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
       //console.log(response);
- if(this.state.trackLocation == true){
+ if(this.state.trackLocation === true){
       this.setState({serachCountry:response.data.country ,trackLocation : false})
       this.CountryResult();
  }
@@ -132,7 +131,7 @@ getGeoInfo = () => {
 
 trackLocation=()=>{
   
-  if(this.state.giveAcessToTrackLocation == false){
+  if(this.state.giveAcessToTrackLocation === false){
     var confirmAlert =  window.confirm("It will Track your Loaction!");
   }
 
@@ -145,11 +144,12 @@ trackLocation=()=>{
 }
 
 shortByPropulationHandler=()=>{
-  this.setState({sortBy : 'population'}, () =>this.RasultOFcountryList());
+  this.setState({sortBy : 'population'}, () =>(this.RasultOFcountryList()));
 }
 
 shortByDeathsHandler=()=>{
-  this.setState({sortBy : 'deaths'}, () =>this.RasultOFcountryList());
+  this.setState({sortBy : 'deaths'},() =>(this.RasultOFcountryList()));
+  //this.RasultOFcountryList()
 }
 
 shortByRecoverdHandler=()=>{
@@ -169,8 +169,8 @@ button =()=>{
 }
 
   render() {
-    const GitHublink = "covid19_tracker_React.js/";
-    const GitHublinkHome = "covid19_tracker_React.js/home";
+    // const GitHublink = "covid19_tracker_React.js/";
+    // const GitHublinkHome = "covid19_tracker_React.js/home";
 
 
     let countryDataSpinner=null;

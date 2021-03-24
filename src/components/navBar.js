@@ -1,13 +1,10 @@
-import React, { useEffect, Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 import './countryData.css';
-import {Route,NavLink, Switch, Redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 class navBar extends Component {
 
 render() {
-    const GitHublinkHome = "covid19_tracker_React.js/home";
-    const GitHublinkList = "covid19_tracker_React.js/list";
     return (
         <div className="navBar">
         <nav>
